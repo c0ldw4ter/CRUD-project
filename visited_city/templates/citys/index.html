@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Список посещённых городов</title>
+	</head>
+	<body>
+		<h1>Список посещённых городов</h1>
+		<form action="/add/" method="post">
+			{% csrf_token %}
+			<label for="city">Город:</label>
+			<input type="text" id="city" name="city" required />
+			<label for="date">Дата:</label>
+			<input type="date" id="date" name="date" required />
+			<button type="submit">Добавить город</button>
+		</form>
+		<ul>
+			{% for city in cities %}
+			<li>
+				{{ city.city }} : {{ city.date|date:"d.m.Y" }}
+				<a href="{% url 'delete' city.pk %}">Удалить</a>
+				<a href="{% url 'edit' city.pk %}">Изменить</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
