@@ -1,5 +1,5 @@
-#Сайт написан на Python\Django + БД PostgreSQL
-##Для запуска:
+# Сайт написан на Python\Django + БД PostgreSQL
+## Для запуска:
 - Скланировать репозиторий и перейти в директорию проекта
 - python -m venv venv
 - . ./venv/bin/activate
